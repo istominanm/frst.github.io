@@ -1,0 +1,632 @@
+/* Start Variables */
+:root {
+  --blue-color :#0075ff;
+  --blue-alt-color : #0d69d5;
+  --orange-color : #f59e0b;
+  --green-color : #22c55e;
+  --red-color : #f44336;
+  --grey-color : #888;
+}
+/* End Variables */
+/* Start Global Rules */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+/* This Scrollbar Is On Full Body ( If You Using overflow scroll on an Element Will Apply Same Shape ) */
+::-webkit-scrollbar {
+  width: 15px;
+}
+/* Scrollbar Background */
+::-webkit-scrollbar-track {
+  background-color: white;
+}
+/* Scrollbar Color */
+::-webkit-scrollbar-thumb {
+  background-color: var(--blue-color);
+} 
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+/* End Global Rules */
+/* Start Page */
+.page {
+  background-color: #f1f5f9;
+  min-height: 100vh;
+}
+/* End Page */
+/* Start Sidebar */
+.sidebar {
+  width: 250px;
+  box-shadow: 0 0 10px #ddd;
+}
+.sidebar > h3 {
+  margin-bottom: 50px;
+}
+.sidebar > h3::before,
+.sidebar > h3::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media (min-width:768px) {
+  .sidebar > h3::before {
+    width: 80px;
+    height: 2px;
+    bottom: -20px;
+  }
+  .sidebar > h3::after {
+    bottom: -29px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 4px solid white;
+  }
+}
+.sidebar ul li a {
+  transition: 0.3s;
+  margin-bottom: 5px;
+}
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+  background-color: #f6f6f6;
+}
+.sidebar ul li a span {
+  font-size: 14px;
+  margin-left: 10px;
+}
+@media (max-width:768px) {
+  .sidebar {
+    width: 62px;
+    padding: 10px;
+  }
+  .sidebar > h3 {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+  .sidebar ul li a span {
+    display: none;
+  }
+}
+/* Start Sidebar */
+/* Start Content */
+/* If You Not Using This Rule The Page Will Make For You 2 Scroll At Table Section
+  First One For Table Container & Second For Full Page Horizontal
+*/
+  .content {
+    overflow: hidden;
+  }
+  .head .search::before {
+    /* this var is the alternative of typing Font Awesome 6 Free as a global variable */
+    font-family: var(--fa-style-family-classic);
+    content: "\f002";
+    font-weight: 900;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: var(var(--grey-color));
+  }
+  .head .search input {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-left: 5px;
+    padding-left: 30px;
+    width: 160px;
+    transition: width 0.3s; 
+  }
+  .head .search input:focus {
+    width: 200px; 
+    outline-color: var(--grey-color);
+  }
+  .head .search input:focus::placeholder {
+    transition: 0.3s; 
+    opacity: 0; 
+  }
+  .head .icons .notification::Before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--red-color);
+    border-radius: 50%;
+    right: -5px;
+    top: -5px;
+  }
+  .head .icons img {
+    width: 32px;
+    height: 32px;
+    margin-left: 15px;
+  }
+  .page h1 {
+    margin: 20px 20px 40px;
+  }
+  .page h1::before,
+  .page h1::after {
+    content: "";
+    height: 3px;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+  }
+  .page h1::before {
+    background-color: white;
+    width: 120px;
+  }
+  .page h1::after {
+    background-color: black;
+    width: 40px;
+  }
+/* End Content */
+/* Start Wrapper */
+.wrapper {
+  grid-template-columns: repeat(auto-fill,minmax(450px,1fr));
+  margin-left: 20px;
+  margin-right: 20px;
+  /* So You Can See New Items At The End Of The Page */
+  margin-bottom: 20px;
+}
+@media (max-width:768px) {
+  .wrapper {
+    grid-template-columns: minmax(200px,1fr);
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+/* End Wrapper */
+/* Start Welcome Widget */
+  .welcome {
+    /* To Take its border radious */
+    overflow: hidden;
+  }
+  .welcome .intro img {
+    /* Width & Height will increase together by one of them */
+    width: 200px;
+    margin-bottom: -10px;
+  }
+  .welcome .avatar {
+    width: 64px;
+    height: 64px;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 2px;
+    box-shadow: 0 0 5px #ddd;
+    margin-left: 20px;
+    margin-top: -32px;
+  }
+  .welcome .body {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 40px;
+  }
+  @media(max-width:768px) {
+    .welcome .body {
+      padding: 20px;
+    }
+  }
+  .welcome .body > div {
+    flex: 1;
+  }
+  .welcome .visit {
+    margin: 35px 15px 15px auto;
+    transition: 0.3s;
+  }
+  .welcome .visit:hover {
+    background-color: var(--blue-alt-color);
+  }
+  @media (max-width:768px) {
+    .welcome .intro {
+      padding-bottom: 30px;
+    }
+    .welcome .avatar {
+      margin-left: 0;
+    }
+    .welcome .body > div:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+/* End Welcome Widget */
+/* Start Quick Draft */
+  .quick-draft textarea {
+    resize: none;
+    min-height: 180px;
+  }
+  .quick-draft .save {
+    margin-left: auto;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  .quick-draft .save:hover {
+    background-color: var(--blue-alt-color);
+  }
+/* End Quick Draft */
+/* Start Yearly Targets */
+.targets .target-row .icon {
+  width: 80px;
+  height: 80px;
+  margin-right: 15px;
+}
+.targets .details {
+  flex: 1;
+}
+.targets .details .progress {
+  height: 4px;
+}
+/* Direct Span is The First One */
+.targets .details .progress > span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+.targets .details .progress > span span {
+  position: absolute;
+  bottom: 16px;
+  right: -16px;
+  color: white;
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.targets .details .progress > span span::after  {
+  content: "";
+  position: absolute;
+  border-color: transparent;
+  border-width: 5px;
+  border-style: solid;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.targets .details .progress > .blue span::after {
+  border-top-color: var(--blue-color);
+} 
+.targets .details .progress > .orange span::after {
+  border-top-color: var(--orange-color);
+}
+.targets .details .progress > .green span::after {
+  border-top-color: var(--green-color);
+}
+.blue .icon,
+.blue .progress {
+  background-color: rgb(0 117 255 / 20%);
+}
+.orange .icon,
+.orange .progress {
+  background-color: rgb(245 158 11 / 20%);
+}
+.green .icon,
+.green .progress {
+  background-color: rgb(34 197 94 / 20%);
+}
+/* End Yearly Targets */
+/* Start Tickets */
+  .tickets .box {
+    border: 1px solid #ccc;
+    /* There A Gap Class 20px - 10px from left and right width*/
+    width: calc(50% - 10px);
+  }
+  @media (max-width:768px) {
+    .tickets .box {
+      width: 100%;
+    }
+  } 
+/* End Tickets */
+/* Start Latest News */
+  .latest-news .news-row:not(:last-of-type) {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+  .latest-news .news-row img {
+    width: 100px;
+    border-radius: 5px;
+    margin-right: 15px;
+  }
+  .latest-news .info {
+    flex: 1;
+  }
+  .latest-news .info h3 {
+    margin: 0 0 5px;
+    font-size: 16px;
+  }
+  @media (max-width:768px) {
+    .latest-news .news-row {
+      display: block;
+    }
+    .latest-news .news-row .label {
+      margin: 10px auto;
+      width: fit-content;
+    }
+  }
+/* End Latest News */
+/* Start Tasks */
+.tasks .task-row:not(:last-of-type) {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+.tasks .info {
+  flex-grow: 1;
+}
+.tasks .done {
+  opacity: 0.3;
+}
+.tasks .done h3,
+.tasks .done p {
+  text-decoration: line-through;
+}
+.tasks .delete {
+  cursor: pointer;
+  transition: 0.3s;
+}
+.tasks .delete:hover {
+  color: var(--red-color);
+}
+/* End Tasks */
+/* Start Latest Uploads */
+.latest-uploads ul li:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+.latest-uploads ul li img {
+  /* Popular width and height */
+  width: 40px;
+  height: 40px;
+}
+/* End Latest Uploads */
+/* Start Current Project */
+.last-project ul::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  width: 2px;
+  height: 90%;
+  background-color: var(--blue-color);
+}
+.last-project ul li {
+  padding-bottom: 35px;
+  min-width: 275px;
+}
+.last-project ul li::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid white;
+  outline: 2px solid var(--blue-color);
+  margin-right: 15px;
+  z-index: 1;
+}
+.last-project ul li.done::before {
+  background-color: var(--blue-color);
+
+}
+/* Must Before To Work Cuz The Element is before the UL */
+.last-project ul li.current::before {
+  animation: change-color 0.8s infinite alternate;
+}
+.last-project img {
+  position: absolute;
+  width: 160px;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+}
+@keyframes change-color {
+  from {
+    background-color: var(--blue-color);
+  }
+  to {
+    background-color: white;
+  }
+}
+/* End Current Project */
+/* Start Reminders */
+.reminders ul li .key {
+  width: 15px;
+  height: 15px;
+}
+.reminders ul li > .blue {
+  border-left: 2px solid var(--blue-color);
+}
+.reminders ul li > .green {
+  border-left: 2px solid var(--green-color);
+}
+.reminders ul li > .orange {
+  border-left: 2px solid var(--orange-color);
+}
+.reminders ul li > .red {
+  border-left: 2px solid var(--red-color);
+}
+/* End Reminders */
+/* Start Latest-Post */
+.latest-post .avatar {
+  width: 48px;
+  height: 48px;
+}
+.latest-post .post-content {
+  text-transform: capitalize;
+  line-height: 1.8;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  min-height: 140px;
+}
+/* End Latest-Post */
+/* Start Social Media */
+.social-media .box {
+  padding-left: 70px;
+}
+.social-media .box i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 52px;
+  transition: 0.3s;
+}
+.social-mediua .box i:hover {
+  transform: rotate(5deg);
+}
+.social-media .twitter {
+  background-color: rgba(28, 160, 242, 20%);
+  color: #1da1f2;
+}
+.social-media .twitter i,
+.social-media .twitter a {
+  background-color: #1da1f2;
+}
+.social-media .facebook {
+  background-color: rgba(24, 119, 242, 20%);
+  color: #1da1f2;
+}
+.social-media .facebook i,
+.social-media .facebook a {
+  background-color: #1da1f2;
+}
+.social-media .youtube {
+  background-color: rgba(255, 0, 0, 20%);
+  color: #ff0000;
+}
+.social-media .youtube i,
+.social-media .youtube a {
+  background-color: #ff0000;
+}
+.social-media .linkedin {
+  background-color: rgba(0, 119, 181, 20%);
+  color: #0077b5;
+}
+.social-media .linkedin i,
+.social-media .linkedin a {
+  background-color: #0077b5;
+}
+/* End Social Media */
+/* Start Project Table */
+/* Making Scrolling Table */
+.projects .responsive-table {
+  overflow-x: auto;
+}
+/* Table Min Width To Avoid Data Cells Get Above ea other Put Width */
+.projects table {
+  min-width: 1000px;
+  border-spacing: 0;
+}
+.projects thead th {
+  background-color: #eee;
+  font-weight: bold;
+  padding: 15px;
+}
+
+.projects table td {
+  padding: 15px;
+}
+.projects tbody td {
+  /* If You Add Border Right here it will Give to all table data and we want it at the end only */
+  border-bottom: 1px solid #eee;
+  border-left: 1px solid #eee;
+  transition: 0.3s;
+}
+/* This Will Apply The Border Right At The End OF Table Data Cells */
+.projects table tbody tr td:last-child {
+  border-right: 1px solid #eee;
+}
+.projects tbody tr:hover {
+  background-color: #faf7f7;
+}
+.projects table img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  padding: 2px;
+  background-color: white;
+}
+.projects table img:not(:first-child) {
+  margin-left: -20px;
+} 
+.projects table .label {
+  font-size: 13px;
+}
+/* End Project Table */
+/* Start Settings */
+.settings-page {
+  grid-template-columns: repeat(auto-fill,minmax(500px,1fr));
+}
+.settings-page .close-message {
+  border: 1px solid #ccc;
+  resize: none;
+  min-height: 150px;
+}
+@media (max-width:768px) {
+  .settings-page {
+    /* One Column Only in mobile */
+    grid-template-columns: minmax(100px,1fr);
+    margin-left: 10px;
+    margin-right: 10px;
+    gap: 10px;
+  }
+}
+.settings-page .email {
+  display: inline-block;
+  width: calc(100% - 80px);
+}
+/* If You Will Use The toggle button in different Pages So Its better to not link it with Setting page class */
+/* But if you know its only for this page u can use the class */
+.toggle-checkbox {
+  appearance: none;
+  /* There Some Space For Toggle So You Will See At the end Of The Dev Vertically So Its Better To Use Display none Directly*/
+  display: none;
+}
+.toggle-switch {
+  background-color: #ccc;
+  width: 78px;
+  height: 32px;
+  border-radius: 15px;
+  position: relative;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.toggle-switch::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f00d";
+  font-weight: 900;
+  position: absolute;
+  background-color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  /* The Circle Height Is 24px and we added top 4 and 4 bottom total 32px its Half 16 so border radius should be 16px */
+  /* if you want to change the height of then u will change the circle height */
+  top: 4px;
+  /* The Width Of Toggle Switch 78px - 24px (circle width) So Circle Width 24 And Left 50px Total 74px So There Free 4px its the 4px at the right */
+  /* if you change width from 78 to 98 all u will do go to the left and make it 70px when checked */
+  left: 4px;
+  /* Centering the X */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #aaa;
+  transition: 0.3s;
+}
+.toggle-checkbox:checked + .toggle-switch {
+  background-color: var(--blue-color);
+
+}
+.toggle-checkbox:checked + .toggle-switch::before {
+  content: "\f00c";
+  left: 50px;
+  color: var(--blue-color);
+}
+/* End Settings */
+
+/* Start Animation */
+  /* You Can Put Animation Codes Here */
+/* End Animation */
